@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Geocart - геоинформационные системы, градостроительство, аэрофотосъемка и геоинформационная аналитика."
+      data-i18n-attr="content:metaDescription"
+    />
+    <title>Geocart - Геоинформационные решения</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-theme="light">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Geocart">
+        <span class="brand-mark">
+          <img src="assets/geocart-logo.png" alt="" />
+        </span>
+        <span>
+          <strong>Geocart</strong>
+          <small>GIS & Urban Planning</small>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Основная навигация">
+        <a href="#about" data-i18n="navAbout">О компании</a>
+        <a href="#services" data-i18n="navServices">Услуги</a>
+        <a href="#geography" data-i18n="navGeography">География</a>
+        <a href="#tools" data-i18n="navTools">Сервисы</a>
+        <a href="#contacts" data-i18n="navContacts">Контакты</a>
+      </nav>
+
+      <div class="header-controls" aria-label="Настройки сайта">
+        <div class="lang-switch" aria-label="Язык">
+          <button class="lang-button is-active" type="button" data-lang="ru">RU</button>
+          <button class="lang-button" type="button" data-lang="kk">KZ</button>
+          <button class="lang-button" type="button" data-lang="en">EN</button>
+        </div>
+        <button class="theme-toggle" type="button" data-theme-toggle data-theme-state="light" aria-label="Переключить тему" title="Переключить тему">
+          <span class="theme-icon theme-icon-sun" aria-hidden="true"></span>
+          <span class="theme-icon theme-icon-moon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-content">
+          <p class="eyebrow">Geocart</p>
+          <h1 id="hero-title" data-i18n="heroTitle">Цифровое градостроительное проектирование и ГИС-решения для управления городом</h1>
+          <p class="hero-lead" data-i18n="heroLead">
+            Широкий спектр услуг в сфере ГИС, градостроительства, аэрофотосъемки с БПЛА и
+            геоинформационной аналитики.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#geography" data-i18n="heroMap">Смотреть географию</a>
+            <a class="button button-secondary" href="#services" data-i18n="heroServices">Наши услуги</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-direction-tiles" aria-label="Направления работы">
+            <article class="tile-gis"><span>GIS</span></article>
+            <article class="tile-urb"><span>URB</span></article>
+            <article class="tile-uav"><span>UAV</span></article>
+            <article class="tile-sci"><span>SCI</span></article>
+            <article class="tile-agr"><span>AGR</span></article>
+            <article class="tile-eco"><span>ECO</span></article>
+            <article class="tile-edu"><span>EDU</span></article>
+          </div>
+
+          <div class="city-growth">
+            <span class="city-road"></span>
+            <span class="building building-one"></span>
+            <span class="building building-two"></span>
+            <span class="building building-three"></span>
+            <span class="building building-four"></span>
+            <span class="building building-five"></span>
+            <span class="building building-six"></span>
+            <span class="city-crane"></span>
+          </div>
+        </div>
+
+        <div class="hero-metrics" aria-label="Ключевые показатели">
+          <div>
+            <strong>10+</strong>
+            <span data-i18n="metricYears">лет опыта</span>
+          </div>
+          <div>
+            <strong>50+</strong>
+            <span data-i18n="metricProjects">проектов</span>
+          </div>
+          <div>
+            <strong>100%</strong>
+            <span data-i18n="metricData">фокус на данных</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section about-section" id="about" aria-labelledby="about-title">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="aboutEyebrow">О компании</p>
+          <h2 id="about-title" class="visually-hidden" data-i18n="aboutTitle">Проектирование территорий с применением ГИС</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-copy">
+            <p data-i18n="aboutP1">
+              Geocart специализируется на градостроительном проектировании с использованием
+              геоинформационных систем (ГИС). Мы разрабатываем проекты территорий — от концепции
+              до рабочей документации — с опорой на точные пространственные данные и цифровые модели.
+            </p>
+            <p data-i18n="aboutP2">
+              Мы не просто анализируем данные — мы проектируем территорию, объединяя градостроительные
+              решения, инженерную инфраструктуру и пространственный анализ в единую цифровую среду.
+            </p>
+            <p data-i18n="aboutP3">
+              Наша команда разрабатывает проекты с нуля, но также может подключиться на любом этапе —
+              для доработки, оптимизации и сопровождения проекта при прохождении государственной экспертизы.
+            </p>
+          </div>
+
+          <div class="capabilities">
+            <article>
+              <span>01</span>
+              <h3 data-i18n="capDataTitle">Проектирование в ГИС</h3>
+              <p data-i18n="capDataText">Разработка генеральных планов, ПДП и схем с использованием цифровых моделей территории, расчет ТЭП, плотности застройки, обеспеченности объектами и инженерной инфраструктуры.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3 data-i18n="capAnalyticsTitle">Аналитика и обоснования</h3>
+              <p data-i18n="capAnalyticsText">Градостроительные расчеты, демографический прогноз, транспортные модели, функциональное зонирование, подготовка обоснований и материалов для согласования.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3 data-i18n="capIntegrationTitle">Сопровождение и интеграция</h3>
+              <p data-i18n="capIntegrationText">Подготовка цифровых данных и проектов для интеграции с градостроительным кадастром, сопровождение при прохождении государственной экспертизы, доработка документации на любой стадии.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section services-section" id="services" aria-labelledby="services-title">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="servicesEyebrow">Продукты и услуги</p>
+          <h2 id="services-title" class="visually-hidden" data-i18n="servicesTitle">От съемки до готовой геоинформационной системы</h2>
+        </div>
+
+        <div class="service-grid" id="service-grid" aria-label="Продукты и услуги"></div>
+      </section>
+
+      <section class="section map-section" id="geography" aria-labelledby="geography-title">
+        <div class="section-heading map-heading">
+          <div>
+            <p class="eyebrow" data-i18n="mapEyebrow">География проектов</p>
+            <h2 id="geography-title" data-i18n="mapTitle">Интерактивная карта работ Geocart</h2>
+          </div>
+        </div>
+
+        <div class="map-layout">
+          <aside class="project-panel" aria-label="Список проектов">
+            <div class="year-control" aria-label="Фильтр проектов по году">
+              <div class="year-control-header">
+                <span data-i18n="yearFilterLabel">Год проектов</span>
+                <strong data-year-label>2025</strong>
+              </div>
+              <input class="year-slider" id="project-year-slider" type="range" min="2021" max="2025" step="1" value="2025" aria-label="Год проектов" />
+              <div class="year-ticks" id="year-ticks" aria-hidden="true"></div>
+              <p class="year-count" data-year-count></p>
+            </div>
+
+            <div class="filter-bar" role="tablist" aria-label="Фильтр проектов">
+              <button class="filter-button is-active" type="button" data-filter="all" data-i18n="filterAll">Все</button>
+              <button class="filter-button" type="button" data-filter="urban" data-i18n="filterUrban">Градостроительство</button>
+              <button class="filter-button" type="button" data-filter="gis" data-i18n="filterGis">ГИС</button>
+              <button class="filter-button" type="button" data-filter="pdp" data-i18n="filterPdp">ПДП</button>
+              <button class="filter-button" type="button" data-filter="vector" data-i18n="filterVector">Векторные карты</button>
+              <button class="filter-button" type="button" data-filter="cadastre" data-i18n="filterCadastre">Кадастр</button>
+              <button class="filter-button" type="button" data-filter="analytics" data-i18n="filterAnalytics">Аналитика</button>
+            </div>
+
+            <div class="project-list" id="project-list"></div>
+          </aside>
+
+          <div class="map-shell">
+            <div id="project-map" class="project-map" aria-label="Карта проектов"></div>
+            <div class="basemap-switcher" aria-label="Подложки карты">
+              <button class="basemap-button is-active" type="button" data-basemap="liberty" data-i18n="basemapMap">Карта</button>
+              <button class="basemap-button" type="button" data-basemap="satellite" data-i18n="basemapSatellite">Космос</button>
+              <button class="basemap-button" type="button" data-basemap="dark" data-i18n="basemapDark">Темная</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section tools-section" id="tools" aria-labelledby="tools-title">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="toolsEyebrow">Сервисы</p>
+          <h2 id="tools-title" data-i18n="toolsTitle">Цифровые сервисы для градостроительных задач</h2>
+        </div>
+
+        <div class="tool-grid">
+          <a class="tool-card tool-link" href="urban-calculator.html">
+            <span>CALC</span>
+            <h3 data-i18n="toolCalcTitle">Градостроительный калькулятор технико-экономических показателей</h3>
+            <p data-i18n="toolCalcText">Расчет ключевых ТЭП по заданным параметрам территории, застройки и функциональных зон.</p>
+          </a>
+          <a class="tool-card tool-link" href="topology-check.html">
+            <span>TOPO</span>
+            <h3 data-i18n="toolTopoTitle">Автоматическая проверка топологии</h3>
+            <p data-i18n="toolTopoText">Поиск пересечений, разрывов, дублей, некорректных границ и ошибок в векторных данных.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contacts" aria-labelledby="contacts-title">
+        <div class="contact-inner">
+          <div>
+            <p class="eyebrow" data-i18n="contactsEyebrow">Контакты</p>
+            <h2 id="contacts-title" data-i18n="contactsTitle">Обсудим задачу и данные проекта</h2>
+            <p data-i18n="contactsLead">
+              Расскажите о территории, типе работ и формате результата, который нужен вашей команде.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <article>
+              <span data-i18n="contactAddressLabel">Адрес</span>
+              <strong data-i18n="contactAddress">Деловой дом Алматы, 6 этаж, 611 с</strong>
+            </article>
+            <article>
+              <span data-i18n="contactPhoneLabel">Телефон</span>
+              <strong>+7 701 913 31 96</strong>
+              <strong>+7 708 352 12 56</strong>
+              <strong>+7 700 977 08 09</strong>
+            </article>
+            <article>
+              <span>Email</span>
+              <strong>geocartcompany@gmail.com</strong>
+            </article>
+            <a class="button button-primary contact-button" href="https://t.me/" target="_blank" rel="noreferrer" data-i18n="telegramButton">
+              Написать в Telegram
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="brand footer-brand">
+        <span class="brand-mark">
+          <img src="assets/geocart-logo.png" alt="" />
+        </span>
+        <span>
+          <strong>Geocart</strong>
+          <small data-i18n="footerSubtitle">Геоинформационные системы и градостроительство</small>
+        </span>
+      </div>
+      <p data-i18n="footerRights">© 2026 ТОО Geocart. Все права защищены.</p>
+    </footer>
+
+    <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
