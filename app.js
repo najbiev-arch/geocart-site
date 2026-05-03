@@ -973,7 +973,6 @@ function renderProjectList(options = {}) {
         <button class="project-item ${project.id === activeProjectId ? "is-active" : ""}" type="button" data-project-id="${project.id}">
           <span>${getCategoryLabel(project.category)} · ${project.year}</span>
           <strong>${localized(project.title)}</strong>
-          <p>${localized(project.place)}</p>
         </button>
       `,
     )
