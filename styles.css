@@ -1661,3 +1661,843 @@ body[data-theme="light"] .project-meta {
     width: 100%;
   }
 }
+
+/* Mobile-first responsive refresh. This layer overrides the older desktop-first rules above. */
+.site-header {
+  grid-template-columns: 1fr;
+  gap: 10px;
+  min-height: auto;
+  padding: 10px 16px;
+}
+
+.brand {
+  order: 1;
+  width: 100%;
+}
+
+.brand-mark {
+  width: 44px;
+  height: 44px;
+  flex-basis: 44px;
+}
+
+.brand strong {
+  font-size: 0.96rem;
+}
+
+.brand small {
+  font-size: 0.68rem;
+}
+
+.main-nav {
+  order: 3;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 2px 0 4px;
+  scrollbar-width: none;
+}
+
+.main-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.main-nav a {
+  flex: 0 0 auto;
+  min-height: 32px;
+  padding: 0 10px;
+  border-color: var(--line);
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 0.78rem;
+}
+
+.header-controls {
+  order: 2;
+  width: 100%;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.lang-switch {
+  overflow-x: auto;
+  max-width: calc(100vw - 116px);
+}
+
+.lang-button {
+  min-width: 38px;
+  min-height: 32px;
+  font-size: 0.78rem;
+}
+
+.theme-toggle {
+  width: 68px;
+  min-width: 68px;
+  min-height: 36px;
+}
+
+body[data-theme="dark"] .theme-toggle::before {
+  transform: translateX(30px);
+}
+
+.hero {
+  min-height: 0;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "content"
+    "visual"
+    "metrics";
+  align-items: start;
+  gap: 26px;
+  padding: 42px 16px 34px;
+}
+
+.hero::before,
+.hero::after {
+  mask-image: none;
+}
+
+.hero-content {
+  max-width: 100%;
+}
+
+h1 {
+  max-width: 100%;
+  margin-bottom: 18px;
+  font-size: clamp(1.76rem, 8.2vw, 2.45rem);
+  line-height: 1.08;
+  overflow-wrap: break-word;
+}
+
+h2 {
+  font-size: clamp(1.56rem, 7vw, 2.05rem);
+  line-height: 1.12;
+  overflow-wrap: break-word;
+}
+
+h3 {
+  overflow-wrap: break-word;
+}
+
+.hero-lead {
+  margin-bottom: 22px;
+  font-size: 0.98rem;
+  line-height: 1.58;
+}
+
+.hero-actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+}
+
+.button {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 16px;
+  text-align: center;
+}
+
+.hero-visual {
+  width: 100%;
+  min-height: clamp(430px, 110vw, 480px);
+}
+
+.hero-direction-tiles {
+  top: 0;
+  left: 0;
+  right: auto;
+  width: 100%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(4, clamp(62px, 17vw, 78px));
+  grid-auto-rows: clamp(62px, 17vw, 78px);
+  gap: 8px;
+}
+
+.hero-direction-tiles article,
+.tile-gis,
+.tile-urb,
+.tile-uav,
+.tile-sci,
+.tile-agr,
+.tile-eco,
+.tile-edu {
+  grid-column: auto;
+  grid-row: auto;
+}
+
+.tile-gis {
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 2;
+}
+
+.tile-urb {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+}
+
+.tile-uav {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.tile-sci {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.tile-agr {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+.tile-eco {
+  grid-column: 1;
+  grid-row: 4;
+}
+
+.tile-edu {
+  grid-column: 2 / span 2;
+  grid-row: 4;
+}
+
+.hero-direction-tiles article {
+  padding: 10px;
+}
+
+.hero-direction-tiles span {
+  font-size: 0.98rem;
+}
+
+.tile-gis span {
+  font-size: clamp(1.58rem, 7vw, 2rem);
+}
+
+.tile-urb span {
+  font-size: clamp(1.22rem, 5vw, 1.62rem);
+}
+
+.city-growth {
+  top: clamp(290px, 74vw, 348px);
+  left: 0;
+  right: auto;
+  width: 100%;
+  height: 126px;
+  opacity: 0.82;
+}
+
+.city-road {
+  height: 44px;
+}
+
+.building-one {
+  --w: 32px;
+  --h: 70px;
+}
+
+.building-two {
+  --w: 42px;
+  --h: 104px;
+}
+
+.building-three {
+  --w: 38px;
+  --h: 88px;
+}
+
+.building-four {
+  --w: 50px;
+  --h: 120px;
+}
+
+.building-five {
+  --w: 40px;
+  --h: 96px;
+}
+
+.building-six {
+  --w: 34px;
+  --h: 78px;
+}
+
+.building {
+  bottom: 28px;
+}
+
+.city-crane {
+  left: 66%;
+  bottom: 116px;
+  width: 86px;
+  height: 34px;
+}
+
+.city-crane::before {
+  top: -30px;
+  height: 66px;
+}
+
+.city-crane::after {
+  height: 32px;
+}
+
+.hero-metrics {
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.hero-metrics div {
+  min-height: 84px;
+  padding: 16px;
+}
+
+.hero-metrics strong {
+  margin-bottom: 4px;
+  font-size: 1.72rem;
+}
+
+.section,
+.contact-section {
+  padding: 62px 16px;
+}
+
+.section-heading {
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.about-grid,
+.contact-inner,
+.map-layout {
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.about-copy p {
+  font-size: 0.98rem;
+}
+
+.capabilities article {
+  grid-template-columns: 1fr;
+  gap: 10px;
+  padding: 18px;
+}
+
+.service-grid {
+  width: calc(100% + 32px);
+  margin-left: -16px;
+  margin-right: -16px;
+  padding: 0 16px 16px;
+  gap: 12px;
+  scroll-padding-left: 16px;
+}
+
+.service-card {
+  flex-basis: min(86vw, 320px);
+  min-height: auto;
+  padding: 20px;
+}
+
+.service-icon,
+.tool-card span {
+  margin-bottom: 18px;
+}
+
+.project-panel {
+  height: auto;
+  padding: 14px;
+}
+
+.year-control {
+  margin-bottom: 14px;
+  padding: 14px;
+}
+
+.filter-bar {
+  margin-bottom: 14px;
+}
+
+.filter-button {
+  min-height: 36px;
+  padding: 0 10px;
+  font-size: 0.78rem;
+}
+
+.project-list {
+  max-height: 320px;
+}
+
+.project-item {
+  min-height: 0;
+  padding: 12px;
+}
+
+.map-shell {
+  height: 440px;
+  min-height: 440px;
+}
+
+.project-map {
+  min-height: 440px;
+}
+
+.basemap-switcher {
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  max-width: none;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  padding-bottom: 2px;
+}
+
+.basemap-button {
+  flex: 0 0 auto;
+  min-height: 34px;
+  padding: 0 10px;
+  font-size: 0.76rem;
+}
+
+.maplibregl-popup-content {
+  max-width: min(280px, calc(100vw - 48px));
+}
+
+.tool-grid {
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.tool-card {
+  min-height: auto;
+  padding: 22px;
+}
+
+.product-page {
+  min-height: calc(100vh - 110px);
+  padding: 56px 16px;
+}
+
+.product-placeholder {
+  padding: 26px 18px;
+}
+
+.product-placeholder h1 {
+  font-size: clamp(1.62rem, 7vw, 2.1rem);
+}
+
+.site-footer {
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 24px 16px;
+}
+
+@media (max-width: 380px) {
+  .brand small {
+    display: none;
+  }
+
+  .hero {
+    padding-top: 34px;
+  }
+
+  .hero-visual {
+    min-height: 404px;
+  }
+
+  .hero-direction-tiles {
+    grid-template-rows: repeat(4, 58px);
+    grid-auto-rows: 58px;
+  }
+
+  .city-growth {
+    top: 278px;
+    height: 116px;
+  }
+}
+
+@media (min-width: 761px) {
+  .site-header {
+    grid-template-columns: 1fr auto;
+    gap: 18px;
+    padding: 14px 32px;
+  }
+
+  .brand {
+    order: 0;
+    width: auto;
+  }
+
+  .brand-mark {
+    width: 52px;
+    height: 52px;
+    flex-basis: 52px;
+  }
+
+  .brand strong {
+    font-size: 1rem;
+  }
+
+  .brand small {
+    display: block;
+    font-size: 0.72rem;
+  }
+
+  .header-controls {
+    order: 0;
+    width: auto;
+  }
+
+  .lang-switch {
+    max-width: none;
+  }
+
+  .lang-button {
+    min-width: 42px;
+    min-height: 34px;
+    font-size: 0.9rem;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  .theme-toggle {
+    width: 72px;
+    min-width: 72px;
+    min-height: 38px;
+  }
+
+  body[data-theme="dark"] .theme-toggle::before {
+    transform: translateX(34px);
+  }
+
+  .hero {
+    gap: 38px;
+    padding: 76px 32px 44px;
+  }
+
+  h1 {
+    font-size: clamp(2.55rem, 5.2vw, 3.18rem);
+    line-height: 1.04;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 3.8vw, 2.45rem);
+  }
+
+  .hero-actions {
+    display: flex;
+    width: auto;
+  }
+
+  .button {
+    width: auto;
+    min-height: 48px;
+    padding: 0 20px;
+  }
+
+  .hero-visual {
+    min-height: 500px;
+  }
+
+  .hero-direction-tiles {
+    width: min(100%, 760px);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(4, 78px);
+    grid-auto-rows: 78px;
+    gap: 12px;
+  }
+
+  .tile-gis {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+  }
+
+  .tile-urb {
+    grid-column: 3 / span 2;
+    grid-row: 1 / span 3;
+  }
+
+  .tile-uav {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .tile-sci {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  .tile-agr {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  .tile-eco {
+    grid-column: 2;
+    grid-row: 4;
+  }
+
+  .tile-edu {
+    grid-column: 3 / span 2;
+    grid-row: 4;
+  }
+
+  .hero-direction-tiles article {
+    padding: 16px;
+  }
+
+  .hero-direction-tiles span {
+    font-size: 1.2rem;
+  }
+
+  .tile-gis span {
+    font-size: 2.5rem;
+  }
+
+  .tile-urb span {
+    font-size: 3.05rem;
+  }
+
+  .city-growth {
+    top: 352px;
+    width: min(100%, 760px);
+    height: 220px;
+    opacity: 0.92;
+  }
+
+  .city-road {
+    height: 66px;
+  }
+
+  .building-one {
+    --w: 48px;
+    --h: 104px;
+  }
+
+  .building-two {
+    --w: 64px;
+    --h: 158px;
+  }
+
+  .building-three {
+    --w: 56px;
+    --h: 126px;
+  }
+
+  .building-four {
+    --w: 78px;
+    --h: 184px;
+  }
+
+  .building-five {
+    --w: 62px;
+    --h: 144px;
+  }
+
+  .building-six {
+    --w: 52px;
+    --h: 116px;
+  }
+
+  .building {
+    bottom: 44px;
+  }
+
+  .city-crane {
+    left: 70%;
+    bottom: 190px;
+    width: 136px;
+    height: 48px;
+  }
+
+  .city-crane::before {
+    top: -38px;
+    height: 96px;
+  }
+
+  .city-crane::after {
+    height: 44px;
+  }
+
+  .hero-metrics {
+    grid-template-columns: repeat(3, minmax(0, 180px));
+    gap: 16px;
+  }
+
+  .section,
+  .contact-section {
+    padding: 84px 32px;
+  }
+
+  .section-heading {
+    margin-bottom: 38px;
+  }
+
+  .service-grid {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0 18px;
+    gap: 16px;
+  }
+
+  .service-card {
+    flex-basis: clamp(280px, 31vw, 340px);
+    min-height: 330px;
+    padding: 24px;
+  }
+
+  .project-panel {
+    height: 420px;
+    padding: 18px;
+  }
+
+  .project-list {
+    max-height: none;
+  }
+
+  .map-shell,
+  .project-map {
+    height: 540px;
+    min-height: 540px;
+  }
+
+  .basemap-switcher {
+    top: 12px;
+    left: 12px;
+    right: auto;
+    max-width: calc(100% - 24px);
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+
+  .tool-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .tool-card {
+    min-height: 260px;
+    padding: 28px;
+  }
+
+  .product-page {
+    padding: 96px 32px 76px;
+  }
+
+  .product-placeholder {
+    padding: 42px;
+  }
+
+  .site-footer {
+    align-items: center;
+    flex-direction: row;
+    padding: 28px 32px;
+  }
+}
+
+@media (min-width: 1121px) {
+  .site-header {
+    grid-template-columns: auto 1fr auto;
+    gap: 24px;
+    padding: 14px 48px;
+  }
+
+  .main-nav {
+    order: 0;
+    display: flex;
+    justify-content: center;
+    width: auto;
+    overflow: visible;
+    padding: 0;
+  }
+
+  .main-nav a {
+    min-height: 38px;
+    padding: 0 12px;
+    border-color: transparent;
+    background: transparent;
+    font-size: 0.9rem;
+  }
+
+  .hero {
+    min-height: 700px;
+    grid-template-columns: minmax(0, 0.95fr) minmax(420px, 0.85fr);
+    grid-template-areas:
+      "content visual"
+      "metrics visual";
+    align-items: end;
+    gap: 56px;
+    padding: 112px 48px 54px;
+  }
+
+  .hero::before {
+    mask-image: linear-gradient(90deg, #000 0%, #000 54%, transparent 76%);
+  }
+
+  .hero::after {
+    mask-image: linear-gradient(90deg, transparent 0%, transparent 36%, #000 58%, #000 100%);
+  }
+
+  h1 {
+    max-width: 840px;
+    font-size: clamp(2.9rem, 3.8vw, 3.42rem);
+  }
+
+  .hero-lead {
+    font-size: 1.12rem;
+  }
+
+  .hero-visual {
+    min-height: 520px;
+  }
+
+  .hero-direction-tiles {
+    top: 28px;
+    left: auto;
+    right: 0;
+    width: min(100%, 520px);
+  }
+
+  .city-growth {
+    top: 342px;
+    left: auto;
+    right: 3%;
+    width: min(94%, 600px);
+    height: 250px;
+  }
+
+  .section,
+  .contact-section {
+    padding: 96px 48px;
+  }
+
+  .about-grid {
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1fr);
+    gap: 44px;
+  }
+
+  .map-layout {
+    grid-template-columns: 360px minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .project-panel,
+  .map-shell {
+    height: 620px;
+    min-height: 620px;
+  }
+
+  .project-map {
+    min-height: 620px;
+  }
+
+  .contact-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer {
+    padding: 28px 48px;
+  }
+}
