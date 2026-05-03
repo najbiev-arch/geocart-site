@@ -1093,7 +1093,9 @@ body[data-theme="dark"] .hero-metrics span {
   gap: 10px;
   min-height: 0;
   overflow-y: auto;
+  overflow-x: hidden;
   padding-right: 8px;
+  scrollbar-gutter: stable;
   scrollbar-color: var(--green) rgba(255, 255, 255, 0.08);
   scrollbar-width: thin;
 }
@@ -2479,7 +2481,7 @@ h3 {
   }
 
   .map-layout {
-    grid-template-columns: 360px minmax(0, 1fr);
+    grid-template-columns: minmax(390px, 410px) minmax(0, 1fr);
     gap: 18px;
   }
 

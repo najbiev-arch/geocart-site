@@ -948,7 +948,8 @@ function createProjectCollection(projects = getVisibleProjects()) {
   };
 }
 
-function renderProjectList() {
+function renderProjectList(options = {}) {
+  const { resetScroll = false, revealActive = false } = options;
   const visibleProjects = getVisibleProjects();
 
   updateYearControl();
@@ -956,6 +957,9 @@ function renderProjectList() {
   if (!visibleProjects.length) {
     activeProjectId = null;
     projectList.innerHTML = `<div class="project-empty">${t("projectsEmpty")}</div>`;
+    if (resetScroll) {
+      projectList.scrollTop = 0;
+    }
     return;
   }
 
@@ -978,13 +982,22 @@ function renderProjectList() {
   projectList.querySelectorAll("[data-project-id]").forEach((button) => {
     button.addEventListener("click", () => selectProject(button.dataset.projectId));
   });
+
+  if (resetScroll) {
+    projectList.scrollTop = 0;
+  } else if (revealActive) {
+    const activeButton = projectList.querySelector(".project-item.is-active");
+    if (activeButton) {
+      activeButton.scrollIntoView({ block: "nearest", inline: "nearest" });
+    }
+  }
 }
 
 function selectProject(projectId) {
   activeProjectId = projectId;
   const project = getActiveProject();
 
-  renderProjectList();
+  renderProjectList({ revealActive: true });
 
   if (maplibreMap) {
     focusMapLibreProject(project);
@@ -1002,7 +1015,7 @@ function setActiveFilter(filter) {
     button.classList.toggle("is-active", button.dataset.filter === filter);
   });
 
-  renderProjectList();
+  renderProjectList({ resetScroll: true });
 
   if (maplibreMap) {
     updateProjectSource();
@@ -1020,7 +1033,7 @@ function setActiveFilter(filter) {
 
 function setActiveYear(year) {
   activeYear = Math.min(MAX_PROJECT_YEAR, Math.max(MIN_PROJECT_YEAR, Number(year)));
-  renderProjectList();
+  renderProjectList({ resetScroll: true });
 
   if (activePopup) {
     activePopup.remove();
