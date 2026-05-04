@@ -2513,3 +2513,9 @@ h3 {
     padding: 28px 48px;
   }
 }
+
+.hero-direction-tiles span,
+.tile-gis span,
+.tile-urb span {
+  font-size: clamp(1rem, 1.8vw, 1.35rem);
+}
