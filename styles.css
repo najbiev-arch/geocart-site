@@ -1341,6 +1341,49 @@ body[data-theme="light"] .project-meta {
   background: var(--blue);
 }
 
+.license-section {
+  background:
+    linear-gradient(180deg, rgba(55, 108, 168, 0.08), transparent 36%),
+    var(--paper);
+}
+
+.license-card {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start;
+  gap: 10px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.license-page {
+  margin: 0;
+}
+
+.license-page img {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 760px) {
+  .license-card {
+    grid-template-columns: repeat(4, minmax(140px, 1fr));
+    gap: 10px;
+    max-width: 100%;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .license-page {
+    scroll-snap-align: start;
+  }
+}
+
 .product-page {
   min-height: calc(100vh - 108px);
   display: grid;
