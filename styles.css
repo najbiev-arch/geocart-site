@@ -491,8 +491,11 @@ body[data-theme="dark"] .hero-direction-tiles article {
 
 .hero-direction-tiles span {
   color: var(--ink);
+  font-family: "Inter", Arial, sans-serif;
   font-size: 1.2rem;
   font-weight: 800;
+  font-synthesis: none;
+  font-variation-settings: "wght" 800;
   line-height: 1;
 }
 
