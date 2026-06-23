@@ -8,9 +8,9 @@ from pathlib import Path
 from urllib.parse import quote
 
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from _smeta_core import clean_filename, create_docx  # noqa: E402
+from smeta_core import clean_filename, create_docx  # noqa: E402
 
 
 class handler(BaseHTTPRequestHandler):
