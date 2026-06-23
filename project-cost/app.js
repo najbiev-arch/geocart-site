@@ -921,7 +921,7 @@ function initExpertise() {
 async function init() {
   assertRequiredElements();
   els.estimateDate.value = todayIso();
-  const response = await fetch("catalog.json");
+  const response = await fetch("/project-cost/catalog.json");
   state.catalog = await response.json();
   initUrban();
   initTopo();
