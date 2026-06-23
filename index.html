@@ -126,7 +126,7 @@
             </p>
             <p data-i18n="aboutP3">
               Наша команда разрабатывает проекты с нуля, но также может подключиться на любом этапе —
-              для доработки, оптимизации и сопровождения проекта при прохождении государственной экспертизы.
+              для доработки, оптимизации и сопровождения проекта при прохождении государственной экспе��тизы.
             </p>
           </div>
 
@@ -299,5 +299,9 @@
 
     <script src="https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js"></script>
     <script src="app.js"></script>
+    <script type="module">
+      import { inject } from './vercel-analytics.js';
+      inject();
+    </script>
   </body>
 </html>
