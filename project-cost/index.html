@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Расчет сметной стоимости ПИР</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <h1>Расчет сметной стоимости ПИР</h1>
+          <p>Раздел 6 градостроительство, инженерно-геодезические изыскания и экспертиза</p>
+        </div>
+        <div class="top-actions">
+          <button id="printBtn" class="ghost" type="button">Печать</button>
+          <button id="exportDocxBtn" type="button">Word</button>
+          <button id="exportXlsxBtn" type="button">Excel</button>
+        </div>
+      </header>
+
+      <section class="meta-grid" aria-label="Реквизиты сметы">
+        <label>
+          № сметы
+          <input id="estimateNo" type="text" value="1" />
+        </label>
+        <label>
+          Дата
+          <input id="estimateDate" type="date" />
+        </label>
+        <label>
+          Подзаголовок
+          <input id="estimateSubtitle" type="text" value="на проектные работы" />
+        </label>
+        <label class="wide">
+          Стадия / вид работ
+          <input id="stageName" type="text" placeholder="Например: проектные работы" />
+        </label>
+        <label class="wide">
+          Заказчик
+          <input id="customer" type="text" placeholder="Наименование заказчика" />
+        </label>
+        <label class="wide">
+          Проектные работы
+          <input id="objectName" type="text" placeholder="Наименование проектных работ" />
+        </label>
+        <label class="wide">
+          Проектная организация
+          <input id="designer" type="text" placeholder="Наименование проектной организации" />
+        </label>
+      </section>
+
+      <section class="workspace">
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Градостроительство</h2>
+            <span id="urbanSource" class="source-tag"></span>
+          </div>
+          <div class="form-grid">
+            <label class="wide">
+              Вид проектных работ
+              <select id="urbanType"></select>
+            </label>
+            <label>
+              Показатель
+              <input id="urbanIndicator" type="number" min="0" step="0.01" value="60" />
+            </label>
+            <div class="coefficients wide">
+              <div class="coeff-head">
+                <span>Коэффициенты</span>
+                <button id="addUrbanCoefBtn" class="ghost mini" type="button">Добавить</button>
+              </div>
+              <div id="urbanCoefficients" class="coefficient-list"></div>
+            </div>
+            <label id="seoOvosBox" class="wide option-box">
+              <input id="urbanSeoOvos" type="checkbox" />
+              <span>
+                Добавить отдельную строку СЭО/ОВОС
+                <small>0,3 от полной стоимости генплана или ТЭО генплана</small>
+              </span>
+            </label>
+          </div>
+          <div id="urbanPreview" class="preview"></div>
+          <button id="addUrbanBtn" type="button">Добавить строку</button>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Топографическая съемка</h2>
+            <span id="topoCount" class="source-tag"></span>
+          </div>
+          <div class="form-grid">
+            <label>
+              Масштаб
+              <select id="topoScale"></select>
+            </label>
+            <label>
+              Сечение рельефа, м
+              <select id="topoRelief"></select>
+            </label>
+            <label class="wide">
+              Территория
+              <select id="topoTerritory"></select>
+            </label>
+            <label>
+              Категория
+              <select id="topoCategory"></select>
+            </label>
+            <label>
+              Площадь, га
+              <input id="topoArea" type="number" min="0" step="0.01" value="10" />
+            </label>
+            <fieldset class="wide checks">
+              <legend>Состав</legend>
+              <label><input id="topoField" type="checkbox" checked /> полевые работы</label>
+              <label><input id="topoOffice" type="checkbox" checked /> камеральные работы</label>
+            </fieldset>
+            <div class="coefficients wide">
+              <div class="coeff-head">
+                <span>Коэффициенты</span>
+                <button id="addTopoCoefBtn" class="ghost mini" type="button">Добавить</button>
+              </div>
+              <div id="topoCoefficients" class="coefficient-list"></div>
+            </div>
+          </div>
+          <div id="topoPreview" class="preview"></div>
+          <button id="addTopoBtn" type="button">Добавить строку</button>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Экспертиза</h2>
+            <span class="source-tag">EPSD</span>
+          </div>
+          <div class="form-grid">
+            <label class="wide">
+              Стоимость ПИР расчетного периода, без НДС, тыс. тенге
+              <div class="inline-input">
+                <input id="expertisePirCost" type="number" min="0" step="0.01" placeholder="Например: 60243.3" />
+                <button id="useEstimateTotalBtn" class="ghost mini" type="button">Взять итог сметы</button>
+              </div>
+            </label>
+            <label>
+              Год проведения экспертизы
+              <select id="expertiseYear"></select>
+            </label>
+            <label>
+              Год составления ПИР
+              <select id="expertisePirYear"></select>
+            </label>
+            <label>
+              МРП экспертизы
+              <input id="expertiseFactorYear" type="text" disabled />
+            </label>
+            <label>
+              МРП ПИР
+              <input id="expertiseFactorPirYear" type="text" disabled />
+            </label>
+            <label>
+              НДС, %
+              <input id="expertiseVatPercent" type="text" disabled />
+            </label>
+            <label>
+              Добавить в смету
+              <select id="expertiseTotalMode">
+                <option value="without_vat">без НДС</option>
+                <option value="with_vat">с НДС</option>
+              </select>
+            </label>
+          </div>
+          <div id="expertisePreview" class="preview"></div>
+          <button id="addExpertiseBtn" type="button">Добавить строку</button>
+        </div>
+      </section>
+
+      <section class="estimate">
+        <div class="smeta-form" aria-label="Форма сметы">
+          <div class="smeta-title" id="smetaTitleView">СМЕТА № 1</div>
+          <div class="smeta-subtitle" id="smetaSubtitleView">на проектные работы</div>
+          <div class="smeta-row">
+            <div class="smeta-label">Наименование проектных работ</div>
+            <div class="smeta-value" id="smetaWorkNameView"></div>
+          </div>
+          <div class="smeta-row">
+            <div class="smeta-label">Стадия проектирования, этапа, вида, проектных или изыскательских работ</div>
+            <div class="smeta-value" id="smetaStageView"></div>
+          </div>
+          <div class="smeta-row">
+            <div class="smeta-label">Наименование проектной (изыскательской) организации</div>
+            <div class="smeta-value" id="smetaDesignerView"></div>
+          </div>
+          <div class="smeta-row">
+            <div class="smeta-label">Наименование организации заказчика</div>
+            <div class="smeta-value" id="smetaCustomerView"></div>
+          </div>
+        </div>
+        <div class="estimate-head">
+          <h2>Смета</h2>
+          <button id="clearBtn" class="ghost" type="button">Очистить</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>№</th>
+                <th>Вид работ</th>
+                <th>Источник</th>
+                <th>Показатель</th>
+                <th>Расчет</th>
+                <th>Коэффициенты</th>
+                <th>Стоимость, тг</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="itemsBody"></tbody>
+            <tfoot>
+              <tr>
+                <td colspan="6">Итого</td>
+                <td id="grandTotal">0,00</td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <label class="note">
+          Примечание
+          <textarea id="note" rows="3" placeholder="Например: коэффициенты приняты по заданию заказчика"></textarea>
+        </label>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
